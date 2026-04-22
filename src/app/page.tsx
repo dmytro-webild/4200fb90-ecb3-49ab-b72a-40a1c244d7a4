@@ -65,7 +65,7 @@ export default function LandingPage() {
         <FaqSplitMedia title="FAQ" description="Common questions about Chopsticks" faqs={[{id: "f1", title: "Do you offer delivery?", content: "Yes! Order via our WhatsApp button for fast, hot delivery."}, {id: "f2", title: "What cuisine do you serve?", content: "We specialize in Chinese, Tibetan, and Asian Fusion dishes."}]} imageSrc="http://img.b2bpic.net/free-photo/beautiful-thanksgiving-meal-concept_23-2148629587.jpg" faqsAnimation="slide-up" textboxLayout="default" useInvertedBackground={false} />
       </div>
       <div id="contact" data-section="contact">
-        <ContactCenter tag="Order Now" title="Ready to Feast?" description="Click below to order directly via WhatsApp and get your meal delivered fast!" tagIcon={MessageCircle} background={{variant: "sparkles-gradient"}} buttonText="Chat on WhatsApp" />
+        <ContactCenter tag="Order Now" title="Ready to Feast?" description="Click below to order directly via WhatsApp and get your meal delivered fast!" tagIcon={MessageCircle} background={{variant: "sparkles-gradient"}} buttonText="Chat on WhatsApp" useInvertedBackground={false} />
       </div>
       <div id="footer" data-section="footer">
         <FooterBase logoText="Chopsticks" columns={[{title: "Menu", items: [{label: "Full Menu", href: "#cuts"}, {label: "Breakfast", href: "#experience"}]}, {title: "Contact", items: [{label: "Call: +123 456 789", href: "tel:+123456789"}, {label: "WhatsApp", href: whatsappHref}]}]} />
