@@ -11,17 +11,40 @@ import TestimonialCardSix from '@/components/sections/testimonial/TestimonialCar
 import FaqSplitMedia from '@/components/sections/faq/FaqSplitMedia';
 import ContactCenter from '@/components/sections/contact/ContactCenter';
 import FooterBase from '@/components/sections/footer/FooterBase';
-import { MessageCircle, Utensils, Award, Clock, MapPin, Phone } from 'lucide-react';
+import { MessageCircle, Utensils } from 'lucide-react';
 
 export default function LandingPage() {
   const whatsappHref = "https://wa.me/1234567890";
+  
+  const openFullMenu = () => {
+    const images = [
+      "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3CRpVKkc7GzpXxCAmMPKnPiBxMP/uploaded-1776862825826-2yyrt0l1.jpg",      "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3CRpVKkc7GzpXxCAmMPKnPiBxMP/uploaded-1776862825827-6sxva9w9.jpg",      "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3CRpVKkc7GzpXxCAmMPKnPiBxMP/uploaded-1776862825827-o5t6jdk4.jpg",      "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3CRpVKkc7GzpXxCAmMPKnPiBxMP/uploaded-1776862825827-ng1mm1vt.jpg",      "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3CRpVKkc7GzpXxCAmMPKnPiBxMP/uploaded-1776862825827-wrmh9olq.jpg"
+    ];
+    
+    const newWindow = window.open('', '_blank');
+    if (newWindow) {
+      newWindow.document.write(
+        '<html><body>' + 
+        images.map(src => `<img src="${src}" style="width:100%; margin-bottom: 10px;" />`).join('') + 
+        '</body></html>'
+      );
+      newWindow.document.close();
+    }
+  };
+
   return (
     <ThemeProvider defaultButtonVariant="elastic-effect" defaultTextAnimation="background-highlight" borderRadius="soft" contentWidth="small" sizing="large" background="floatingGradient" cardStyle="soft-shadow" primaryButtonStyle="gradient" secondaryButtonStyle="radial-glow" headingFontWeight="medium">
       <div id="nav" data-section="nav">
         <NavbarStyleCentered brandName="Chopsticks" navItems={[{name: "Menu", id: "cuts"}, {name: "Breakfast", id: "experience"}, {name: "About", id: "about"}, {name: "Contact", id: "contact"}]} button={{text: "Order on WhatsApp", href: whatsappHref}} />
       </div>
       <div id="hero" data-section="hero">
-        <HeroBillboardCarousel title="Authentic Asian Taste in Your City" description="Fresh, Hot & Delicious – Order Now" background={{variant: "gradient-bars"}} buttons={[{text: "Order on WhatsApp", href: whatsappHref}, {text: "View Menu", href: "#cuts"}]} mediaItems={[{imageSrc: "http://img.b2bpic.net/free-photo/defocused-statue-with-bowl-noodles-with-vegetables_23-2148382866.jpg", imageAlt: "Noodles"}, {imageSrc: "http://img.b2bpic.net/free-photo/georgian-khinkali-table_140725-8580.jpg", imageAlt: "Momos"}, {imageSrc: "http://img.b2bpic.net/free-photo/side-view-green-beans-garlic-bowls-spices-oil-bottle-plate-green-beans-tomatoes-table_140725-123080.jpg", imageAlt: "Sizzlers"}]} />
+        <HeroBillboardCarousel 
+          title="Authentic Asian Taste in Your City" 
+          description="Fresh, Hot & Delicious – Order Now" 
+          background={{variant: "gradient-bars"}} 
+          buttons={[{text: "Order on WhatsApp", href: whatsappHref}, {text: "View Menu", onClick: openFullMenu}]} 
+          mediaItems={[{imageSrc: "http://img.b2bpic.net/free-photo/defocused-statue-with-bowl-noodles-with-vegetables_23-2148382866.jpg", imageAlt: "Noodles"}, {imageSrc: "http://img.b2bpic.net/free-photo/georgian-khinkali-table_140725-8580.jpg", imageAlt: "Momos"}, {imageSrc: "http://img.b2bpic.net/free-photo/side-view-green-beans-garlic-bowls-spices-oil-bottle-plate-green-beans-tomatoes-table_140725-123080.jpg", imageAlt: "Sizzlers"}]} 
+        />
       </div>
       <div id="about" data-section="about">
         <MetricSplitMediaAbout tag="Our Story" tagIcon={Utensils} title="Authentic Flavors, Fresh Ingredients" description="At Chopsticks, we bring the vibrant street food culture of Asia to your doorstep. From traditional Tibetan Momos to bold Szechwan stir-fries, we use only the freshest ingredients to ensure every bite is an authentic culinary journey." metrics={[{value: "10+", title: "Years Experience"}, {value: "50+", title: "Signature Dishes"}]} imageSrc="http://img.b2bpic.net/free-photo/antique-ceiling-lamp_1203-804.jpg" mediaAnimation="slide-up" metricsAnimation="slide-up" useInvertedBackground={false} />
